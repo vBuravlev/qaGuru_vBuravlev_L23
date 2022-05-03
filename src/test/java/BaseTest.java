@@ -22,7 +22,7 @@ public class BaseTest {
     }
 
     @BeforeEach
-    static void setupEach() {
+    public void setupEach() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
