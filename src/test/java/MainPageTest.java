@@ -9,7 +9,7 @@ import static com.codeborne.selenide.WebDriverConditions.url;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MainPageTest {
+public class MainPageTest extends BaseTest {
 
     @Test
     @DisplayName("Слайдер \"Продукты и решения\"")
