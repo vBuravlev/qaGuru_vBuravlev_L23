@@ -1,3 +1,4 @@
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
@@ -12,9 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MainPageTest extends BaseTest {
 
     @Test
+    @AllureId("9780")
     @DisplayName("Слайдер \"Продукты и решения\"")
     @Story("Работа слайдера")
-   // @Tag("web")
+    @Tag("web")
     @Owner("buravlev")
     public void sliderProdAndSolution() {
         step("Открываем главную страницу", () -> {
@@ -41,9 +43,10 @@ public class MainPageTest extends BaseTest {
 
 
     @Test
+    @AllureId("9781")
     @DisplayName("Frame Обратная связь")
     @Story("Контакты")
-  //  @Tag("web")
+    @Tag("web")
     @Owner("buravlev")
     public void feedbackFrame() {
         step("Открываем главную страницу", () -> {
@@ -58,9 +61,10 @@ public class MainPageTest extends BaseTest {
     }
 
     @Test
+    @AllureId("9779")
     @DisplayName("Кнопка 'Другие новости'")
     @Story("Новости")
- //   @Tag("web")
+    @Tag("web")
     @Owner("buravlev")
     public void diffNews() {
         step("Открываем главную страницу", () -> {
