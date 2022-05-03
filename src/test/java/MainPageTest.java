@@ -16,7 +16,6 @@ public class MainPageTest extends BaseTest {
     @AllureId("9780")
     @DisplayName("Слайдер \"Продукты и решения\"")
     @Story("Работа слайдера")
-    @Tag("web")
     @Owner("buravlev")
     public void sliderProdAndSolution() {
         step("Открываем главную страницу", () -> {
@@ -46,7 +45,6 @@ public class MainPageTest extends BaseTest {
     @AllureId("9781")
     @DisplayName("Frame Обратная связь")
     @Story("Контакты")
-    @Tag("web")
     @Owner("buravlev")
     public void feedbackFrame() {
         step("Открываем главную страницу", () -> {
@@ -64,7 +62,6 @@ public class MainPageTest extends BaseTest {
     @AllureId("9779")
     @DisplayName("Кнопка 'Другие новости'")
     @Story("Новости")
-    @Tag("web")
     @Owner("buravlev")
     public void diffNews() {
         step("Открываем главную страницу", () -> {
