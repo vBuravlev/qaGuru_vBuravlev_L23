@@ -4,9 +4,8 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        "system.properties",
-        "classpath:config/local.properties",
-        "classpath:config/remote.properties"
+        "classpath:local.properties",
+        "classpath:remote.properties"
 })
 public interface ProjectConfig extends Config {
 
@@ -30,4 +29,7 @@ public interface ProjectConfig extends Config {
 
     @Key("timeout")
     int timeout();
+
+    @Key("threads")
+    int threads();
 }

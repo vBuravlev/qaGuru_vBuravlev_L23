@@ -3,7 +3,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import static com.codeborne.selenide.Condition.visible;
+
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static io.qameta.allure.Allure.step;
@@ -14,7 +14,7 @@ public class MainPageTest {
     @Test
     @DisplayName("Слайдер \"Продукты и решения\"")
     @Story("Работа слайдера")
-    @Tag("web")
+   // @Tag("web")
     @Owner("buravlev")
     public void sliderProdAndSolution() {
         step("Открываем главную страницу", () -> {
@@ -43,7 +43,7 @@ public class MainPageTest {
     @Test
     @DisplayName("Frame Обратная связь")
     @Story("Контакты")
-    @Tag("web")
+  //  @Tag("web")
     @Owner("buravlev")
     public void feedbackFrame() {
         step("Открываем главную страницу", () -> {
@@ -60,7 +60,7 @@ public class MainPageTest {
     @Test
     @DisplayName("Кнопка 'Другие новости'")
     @Story("Новости")
-    @Tag("web")
+ //   @Tag("web")
     @Owner("buravlev")
     public void diffNews() {
         step("Открываем главную страницу", () -> {
