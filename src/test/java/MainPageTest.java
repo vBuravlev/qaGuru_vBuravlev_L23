@@ -1,11 +1,16 @@
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.FileDownloadMode.PROXY;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverConditions.url;
+import static com.codeborne.selenide.WebDriverConditions.*;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -74,6 +79,54 @@ public class MainPageTest {
 
         step("Проверяем URL страницы новостей", () -> {
             webdriver().shouldHave(url("https://tionix.ru/news"));
+        });
+
+    }
+
+
+    @Test
+    @DisplayName("Реферальные ссылки на партнеров")
+    @Story("Партнеры")
+    @Tag("web")
+    @Owner("buravlev")
+    public void partnersRef() {
+        step("Открываем главную страницу", () -> {
+            open("https://tionix.ru/");
+        });
+
+        step("Кликаем по логотипу Ростелеком", () -> {
+            $x("//div[text()='Входим в группу компаний']").scrollTo();
+            $x("//img[contains(@src,'Logo_Rostelecom.svg')]").click();
+        });
+
+        step("Проверяем URL страницы Ростелеком", () -> {
+            switchTo().window(1);
+            webdriver().shouldHave(currentFrameUrlContaining(".rt.ru"));
+        });
+
+    }
+
+    @Test
+    @DisplayName("Скачивания Руководства пользователя")
+    @Story("Документация")
+    @Tag("web")
+    @Owner("buravlev")
+    public void downloadUserManual() {
+        Configuration.proxyEnabled = true;
+        Configuration.fileDownload = PROXY;
+
+        step("Открываем главную страницу", () -> {
+            open("https://tionix.ru/");
+        });
+
+        step("Открываем руководство пользователя в подвале сайта", () -> {
+            $x("//div[text()='Документация']").scrollTo();
+            $x("//a[text()='Руководство пользователя']").click();
+        });
+
+        step("Проверяем URL страницы Ростелеком", () -> {
+            switchTo().window(1);
+            webdriver().shouldHave(currentFrameUrlContaining("https://files.tionix.ru/"));
         });
 
     }

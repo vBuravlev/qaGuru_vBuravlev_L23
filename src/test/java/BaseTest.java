@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Configuration;
 import helpers.DriverConfig;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.Project;
@@ -8,6 +9,7 @@ import io.qameta.allure.junit5.AllureJunit5;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 
@@ -16,8 +18,14 @@ public class BaseTest {
 
     @BeforeAll
     static void setup() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         DriverConfig.configure();
+
+    }
+
+
+    @BeforeEach
+    public void listenerAllure() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
 
     @AfterEach
