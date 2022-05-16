@@ -112,8 +112,6 @@ public class MainPageTest {
     @Tag("web")
     @Owner("buravlev")
     public void downloadUserManual() {
-        Configuration.proxyEnabled = true;
-        Configuration.fileDownload = PROXY;
 
         step("Открываем главную страницу", () -> {
             open("https://tionix.ru/");
